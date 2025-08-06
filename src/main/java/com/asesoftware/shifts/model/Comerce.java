@@ -21,6 +21,7 @@ import java.util.List;
 @AllArgsConstructor
 public class Comerce {
     @Id
+
     @Column(name = "id_comercio", nullable = false)
     private Long idComercio;
 
