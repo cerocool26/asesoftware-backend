@@ -1,7 +1,8 @@
-package com.asesoftware.shifts.service;
+package com.asesoftware.shifts.service.implementation;
 
 import com.asesoftware.shifts.repository.ShiftRepositoryImpl;
 import com.asesoftware.shifts.request.ShiftDTO;
+import com.asesoftware.shifts.service.ShiftServiceInterface;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -12,7 +13,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class ShiftService {
+public class ShiftServiceImpl implements ShiftServiceInterface {
 
     private final ShiftRepositoryImpl shiftRepository;
 
