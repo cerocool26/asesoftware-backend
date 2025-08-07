@@ -2,7 +2,7 @@ package com.asesoftware.shifts.controller;
 
 import com.asesoftware.shifts.request.GenerateShiftRequest;
 import com.asesoftware.shifts.request.ShiftDTO;
-import com.asesoftware.shifts.service.ShiftService;
+import com.asesoftware.shifts.service.ShiftServiceInterface;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -23,7 +23,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Slf4j
 public class ShiftController {
-    private final ShiftService service;
+    private final ShiftServiceInterface service;
 
     @PostMapping("/generar")
     @Operation(
