@@ -1,7 +1,7 @@
 package com.asesoftware.shifts.repository;
 
 import com.asesoftware.shifts.mapper.ShiftMapper;
-import com.asesoftware.shifts.request.ShiftDTO;
+import com.asesoftware.shifts.response.ShiftResponse;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.ParameterMode;
 import jakarta.persistence.PersistenceContext;
@@ -24,7 +24,7 @@ public class ShiftRepositoryImpl implements ShiftRepository {
 
     @Override
     @Transactional(readOnly = true)
-    public List<ShiftDTO> generarTurnosPorServicio(LocalDate fechaInicio, LocalDate fechaFin, Long idServicio) {
+    public List<ShiftResponse> generarTurnosPorServicio(LocalDate fechaInicio, LocalDate fechaFin, Long idServicio) {
         log.info("Ejecutando procedimiento almacenado 'generar_turnos_por_servicio' con parámetros: fechaInicio={}, fechaFin={}, idServicio={}",
                 fechaInicio, fechaFin, idServicio);
 
@@ -45,7 +45,7 @@ public class ShiftRepositoryImpl implements ShiftRepository {
             @SuppressWarnings("unchecked")
             List<Object> resultList = query.getResultList();
 
-            List<ShiftDTO> salida = new ArrayList<>();
+            List<ShiftResponse> salida = new ArrayList<>();
             if (resultList != null) {
                 for (Object row : resultList) {
                     salida.add(ShiftMapper.mapRow(row));

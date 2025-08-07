@@ -1,4 +1,4 @@
-package com.asesoftware.shifts.request;
+package com.asesoftware.shifts.response;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,11 +10,13 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @NoArgsConstructor
-public class ShiftDTO {
+public class ShiftResponse {
     private Long idTurno;
     private Long idServicio;
     private LocalDate fechaTurno;
     private LocalDateTime horaInicio;
     private LocalDateTime horaFin;
     private String estado;
+    private String nombreComercio;
+    private String nombreServicio;
 }

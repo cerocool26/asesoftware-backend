@@ -1,7 +1,7 @@
 package com.asesoftware.shifts.controller;
 
 import com.asesoftware.shifts.request.GenerateShiftRequest;
-import com.asesoftware.shifts.request.ShiftDTO;
+import com.asesoftware.shifts.response.ShiftResponse;
 import com.asesoftware.shifts.service.ShiftServiceInterface;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -33,11 +33,11 @@ public class ShiftController {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Turnos generados exitosamente",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = ShiftDTO.class))),
+                            schema = @Schema(implementation = ShiftResponse.class))),
             @ApiResponse(responseCode = "400", description = "Solicitud inválida", content = @Content),
             @ApiResponse(responseCode = "500", description = "Error interno del servidor", content = @Content)
     })
-    public ResponseEntity<List<ShiftDTO>> generarTurnos(@RequestBody GenerateShiftRequest req) {
+    public ResponseEntity<List<ShiftResponse>> generarTurnos(@RequestBody GenerateShiftRequest req) {
         log.info("Solicitud para generar turnos: fechaInicio={}, fechaFin={}, idServicio={}",
                 req.getFechaInicio(), req.getFechaFin(), req.getIdServicio());
         var resultados = service.generarTurnos(req.getFechaInicio(), req.getFechaFin(), req.getIdServicio());
