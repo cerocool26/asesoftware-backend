@@ -1,9 +1,9 @@
 package com.asesoftware.shifts.service;
 
-import com.asesoftware.shifts.model.Comerce;
+import com.asesoftware.shifts.response.ComerceResponse;
 
 import java.util.List;
 
 public interface ComerceServiceInterface {
-    public List<Comerce> obtenerTodos();
+    public List<ComerceResponse> obtenerTodos();
 }

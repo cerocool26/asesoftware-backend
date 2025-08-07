@@ -1,6 +1,6 @@
 package com.asesoftware.shifts.controller;
 
-import com.asesoftware.shifts.model.Comerce;
+import com.asesoftware.shifts.response.ComerceResponse;
 import com.asesoftware.shifts.service.ComerceServiceInterface;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -38,9 +38,9 @@ public class ComercioController {
             @ApiResponse(responseCode = "500", description = "Error interno del servidor")
     })
     @GetMapping
-    public List<Comerce> obtenerTodos() {
+    public List<ComerceResponse> obtenerTodos() {
         log.info("Solicitud recibida: obtener todos los comercios");
-        List<Comerce> comercios = comerceService.obtenerTodos();
+        List<ComerceResponse> comercios = comerceService.obtenerTodos();
         log.info("Se encontraron {} comercios", comercios.size());
         return comercios;
     }
